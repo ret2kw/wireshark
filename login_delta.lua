@@ -2,8 +2,8 @@ do
 
     print("Analyze Domain Login Times")
 
-    local mac_address = "6c:62:6d:e1:a0:6a"
-    local gpo_log = "log.txt"
+    local mac_address = ""
+    local gpo_log = ""
 
     local smb_sess = {}
     --we need to track file guids to map them back to human names so we know what is closing
@@ -238,20 +238,6 @@ do
                     print("[*] GPO " .. gpo_names[g] .. " took: " .. tonumber(smb_sess[s]['gpo_times'][g]['last']) - tonumber(smb_sess[s]['gpo_times'][g]['first']) .. " seconds")
                 end
             end  
-
-           --[[ for k,v in pairs(smb_sess) do
-                for g,t in pairs(smb_sess[k]['gpo_times']) do
-                    local gpo = gpo_names[g]
-                    myline = "GPO: " .. gpo .. " took time"
-                    print(myline)
-                    --print('foo')
-                end
-            end
-
-          for k,v in pairs(gpo_names) do
-              print(k,v)
-          end ]]--
-
 
         --tap.draw() end
         end
